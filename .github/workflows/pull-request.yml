@@ -30,5 +30,4 @@ jobs:
     - name: install cppcheck
       run: sudo apt-get install cppcheck
     - name: scan with cppcheck
-      run: 'cppcheck *.c'
-
+      run: 'cppcheck --enable=style .'
