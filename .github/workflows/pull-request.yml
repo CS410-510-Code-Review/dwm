@@ -9,5 +9,7 @@ jobs:
       with:
         fetch-depth: 10
     - run: git fetch --no-tags --prune --depth=10 origin main
+    - name: Install development dependencies
+      run: sudo apt-get install libx11-dev libxft-dev libxinerama-dev build-essential
     - name: build
       run: make
