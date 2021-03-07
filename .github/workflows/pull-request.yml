@@ -23,3 +23,15 @@ jobs:
           extensions: 'h,c'
           clangFormatVersion: 11
           style: file
+  cppcheck:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: cppcheck
+        uses: deep5050/cppcheck-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN}}
+      - name: publish report
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'main' # your branch name goes here
