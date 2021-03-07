@@ -13,3 +13,13 @@ jobs:
       run: sudo apt-get install libx11-dev libxft-dev libxinerama-dev build-essential
     - name: build
       run: make
+  clang-lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: DoozyX/clang-format-lint-action@v0.11
+        with:
+          source: '.'
+          extensions: 'h,c'
+          clangFormatVersion: 11
+          style: chromium
